@@ -8,8 +8,16 @@ import {
 } from "react-router-dom";
 import About from './About';
 function App() {
+  window.dataLayer.push({
+    event: 'pageview',
+    page: {
+      url: window.location,
+      title: window.title
+    }
+  });
   return (
     <div className="App">
+      {console.log(window.dataLayer)}
       <Router>
         <Link to='/'>home</Link>
         <Link to='/about'><div>about</div></Link>

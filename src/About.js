@@ -1,8 +1,20 @@
 const About = () => {
+    const clicked = () => {
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "login",
+                action: "account",
+                label: "premium",
+                value: "1"
+            }
+        });
+    }
     return (
         <>
+            {console.log(window.dataLayer)}
             <div>about!!!</div>
-            <button className='btn1'>btn1</button>
+            <button onClick={clicked} className='btn1'>btn1</button>
             <button className='btn2'>btn2</button>
             <button className='btn3'>btn3</button>
             <button className='btn4'>btn4</button>
