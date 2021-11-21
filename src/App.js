@@ -11,7 +11,7 @@ function App() {
   window.dataLayer.push({
     event: 'pageview',
     page: {
-      url: window.location,
+      url: window.location.href,
       title: window.title
     }
   });
