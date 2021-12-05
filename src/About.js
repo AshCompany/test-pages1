@@ -1,5 +1,5 @@
 const About = () => {
-    const clicked = () => {
+    const btnOneClicked = () => {
         window.dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
         window.dataLayer.push({
             event: "view_item_list",
@@ -33,26 +33,28 @@ const About = () => {
                         index: 2,
                         quantity: 1
                     }]
-                }
-            });
-            
-            console.log(window.dataLayer);
-        }
-        return (
-            <>
-            {console.log(window.dataLayer)}
-            <div>about!!!</div>
-            <button onClick={clicked} className='btn1'>btn1</button>
-            <button className='btn2'>btn2</button>
-            <button className='btn3'>btn3</button>
-            <button className='btn4'>btn4</button>
-            <button className='btn5'>btn5</button>
-            <button className='btn6'>btn6</button>
-            <button className='btn7'>btn7</button>
-            <button className='btn8'>btn8</button>
-            <button className='btn9'>btn9</button>
+            }
+        });
 
-        </>
+    }
+    const inputTwoChanged = (value) => {
+        window.dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+        window.dataLayer.push({
+            event: "custom_value",
+            ecommerce: {
+                items: [
+                    {
+                        item_value: value,       // Name or ID is required.
+                    }]
+            }
+        });
+    }
+    return (
+        <div>
+            <div>about!!!</div>
+            <button onClick={btnOneClicked} className='btn1'>btn1</button>
+            <input onChange={(e) => inputTwoChanged(e.target.value)} className='btn2' />
+        </div>
     )
 }
 export default About
