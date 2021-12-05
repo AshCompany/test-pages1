@@ -40,14 +40,36 @@ const About = () => {
     const inputTwoChanged = (value) => {
         window.dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
         window.dataLayer.push({
-            event: "custom_value",
+            event: "purchase",
             ecommerce: {
-                items: [
-                    {
-                        item_value: value,       // Name or ID is required.
-                    }]
+                transaction_id: value,
+                affiliation: "Online Store",
+                value: "59.89",
+                tax: "4.90",
+                shipping: "5.99",
+                currency: "EUR",
+                coupon: "SUMMER_SALE",
+                items: [{
+                    item_name: "Triblend Android T-Shirt",
+                    item_id: "12345",
+                    price: "15.25",
+                    item_brand: "Google",
+                    item_category: "Apparel",
+                    item_variant: "Gray",
+                    quantity: 1
+                }, {
+                    item_name: "Donut Friday Scented T-Shirt",
+                    item_id: "67890",
+                    price: 33.75,
+                    item_brand: "Google",
+                    item_category: "Apparel",
+                    item_variant: "Black",
+                    quantity: 1
+                }]
             }
         });
+
+
     }
     return (
         <div>

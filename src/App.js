@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import About from './About';
+import Products from './Products';
 function App() {
 
   window.dataLayer.push({
@@ -16,20 +17,13 @@ function App() {
       title: window.title
     }
   });
-  
+
   return (
     <div className="App">
-      {console.log(window.dataLayer)}
       <Router>
-        <Link to='/'>home</Link>
-        <Link to='/about'><div>about</div></Link>
-
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
           <Route path="/">
-            <div>home</div>
+            <Products />
           </Route>
         </Switch>
       </Router>
