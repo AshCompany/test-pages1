@@ -102,15 +102,16 @@ class Products extends React.Component {
         </>)
     }
     viewProductDetail = (product) => {
+        console.log(product);
         window.dataLayer.push({ ecommerce: null });
         window.dataLayer.push({
             event: "select_item",
             ecommerce: {
-                items: [...product]
+                items: product
             }
         })
         const axios = require('axios');
-        axios.get(`https://api.diamond-press.com/api/en/Nas/Product/GetProductInfo?&id=${product.id}&title=is+not+valid+now`).then(res => {
+        axios.get(`https://api.diamond-press.com/api/en/Nas/Product/GetProductInfo?&id=${product.selectedId}&title=is+not+valid+now`).then(res => {
             if (!res.data.hasError) {
                 this.setState({
                     productDetail: {},
@@ -122,7 +123,7 @@ class Products extends React.Component {
                 window.dataLayer.push({
                     event: "view_item",
                     ecommerce: {
-                        items: [...res.data.messageItems[0].data]
+                        items: res.data.messageItems[0].data
                     }
                 })
             }
