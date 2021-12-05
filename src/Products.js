@@ -13,7 +13,7 @@ class Products extends React.Component {
     }
     componentDidMount = () => {
         const axios = require('axios');
-        axios.get('http://172.17.17.101:8088/api/en/Nas/Product/GetProductList?&pageLength=12&currentPageIndex=1&Filter.productSortType=3').then(res => {
+        axios.get('https://api.diamond-press.com/api/en/Nas/Product/GetProductList?&pageLength=12&currentPageIndex=1&Filter.productSortType=3').then(res => {
             this.setState({
                 products: res.data.messageItems[0].data.dataItems,
             })
@@ -103,7 +103,7 @@ class Products extends React.Component {
                     <div>
                         {this.state.products.map(product => {
                             return !!product.imageUrl && <div style={{ marginTop: '10px', height: '100px', display: 'flex' }}>
-                                <img style={{ width: '100px' }} src={`http://172.17.17.101:8088${product.imageUrl}`} />
+                                <img style={{ width: '100px' }} src={`https://api.diamond-press.com${product.imageUrl}`} />
                                 <div>
                                     <p>{product.name}</p>
                                     <button onClick={() => this.addToBasketClicked(product)}>add to basket</button>
